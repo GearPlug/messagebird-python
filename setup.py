@@ -6,16 +6,15 @@ with open('README.md', encoding='utf-8') as f:
     description = f.read()
 
 setup(
-    name                          = 'messagebird',
+    name                          = 'gearplug-messagebird',
     packages                      = ['messagebird'],
-    version                       = '2.0.0',
+    version                       = '2.1.0',
     description                   = "MessageBird's REST API",
     author                        = 'MessageBird',
     author_email                  = 'support@messagebird.com',
     long_description              = description,
     long_description_content_type = 'text/markdown',
-    url                           = 'https://github.com/messagebird/python-rest-api',
-    download_url                  = 'https://github.com/messagebird/python-rest-api/tarball/2.0.0',
+    url                           = 'https://github.com/GearPlug/messagebird-python',    
     keywords                      = ['messagebird', 'sms'],
     install_requires              = ['requests>=2.4.1', 'python-dateutil>=2.6.0', 'pyjwt>=2.1.0'],
     extras_require               = {
