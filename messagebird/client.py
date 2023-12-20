@@ -6,6 +6,7 @@ from messagebird.balance import Balance
 from messagebird.call import Call
 from messagebird.call_list import CallList
 from messagebird.contact import Contact, ContactList
+from messagebird.contactv2 import Contactv2
 from messagebird.error import Error, ValidationError
 from messagebird.group import Group, GroupList
 from messagebird.hlr import HLR
@@ -37,6 +38,9 @@ CONVERSATION_MESSAGES_PATH = "messages"
 CONVERSATION_WEB_HOOKS_PATH = "webhooks"
 CONVERSATION_SEND_PATH = "send"
 CONVERSATION_TYPE = "conversation"
+
+CONTACTV2_API_ROOT = "https://contacts.messagebird.com/v2"
+CONTACTV2_PATH = "contacts"
 
 VOICE_API_ROOT = "https://voice.messagebird.com"
 VOICE_TYPE = "voice"
@@ -338,6 +342,10 @@ class Client(object):
     def contact_list(self, limit=10, offset=0):
         query = self._format_query(limit, offset)
         return ContactList().load(self.request("contacts?" + query, "GET", None))
+   
+    def contactv2_create(self, params=None):
+        uri = CONTACTV2_API_ROOT + "/" + CONTACTV2_PATH
+        return Contactv2().load(self.request(uri, "POST", params))
 
     def group(self, id):
         return Group().load(self.request("groups/" + str(id), "GET", None))

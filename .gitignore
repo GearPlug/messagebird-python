@@ -63,3 +63,5 @@ target/
 
 # pyvenv
 venv*/
+script.py
+test.py
